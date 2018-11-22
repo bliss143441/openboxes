@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Translate } from 'react-localize-redux';
 
 import TableBody from './TableBody';
 import TableBodyVirtualized from './TableBodyVirtualized';
@@ -40,7 +41,7 @@ class FieldArrayComponent extends Component {
                   flex: config.fixedWidth ? `0 1 ${config.fixedWidth}` : `${config.flexWidth || '12'} 1 0`,
                   minWidth: 0,
                 }}
-              >{config.label}
+              ><Translate id={config.label} />
               </div>))}
           </div>
         </div>
@@ -69,7 +70,7 @@ class FieldArrayComponent extends Component {
             {
               typeof AddButton === 'string' ?
                 <button type="button" className="btn btn-outline-success btn-xs" onClick={() => addRow()}>
-                  {AddButton}
+                  <Translate id={AddButton} />
                 </button>
                 : <AddButton {...properties} addRow={addRow} />
             }
